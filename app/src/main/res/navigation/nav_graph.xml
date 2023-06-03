@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.it_school.zakovatclubapp.ui.screens.splash.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_homeScreen"
+            app:destination="@id/homeScreen"
+            app:popUpTo="@id/nav_graph.xml" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.it_school.zakovatclubapp.ui.screens.home.HomeScreen"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreen_to_questionScreen"
+            app:destination="@id/questionScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionScreen"
+        android:name="uz.it_school.zakovatclubapp.ui.screens.questions.QuestionsScreen"
+        android:label="fragment_question_screen"
+        tools:layout="@layout/fragment_question_screen" >
+        <argument
+            android:name="group"
+            app:argType="uz.it_school.zakovatclubapp.model.room.entities.GroupEntity" />
+        <action
+            android:id="@+id/action_questionScreen_to_questionScreen2"
+            app:destination="@id/questionScreen2" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionScreen2"
+        android:name="uz.it_school.zakovatclubapp.ui.screens.question.QuestionScreen"
+        android:label="fragment_question_screen2"
+        tools:layout="@layout/fragment_question_screen2" >
+        <argument
+            android:name="question"
+            app:argType="uz.it_school.zakovatclubapp.model.room.entities.QuestionEntity" />
+    </fragment>
+</navigation>
